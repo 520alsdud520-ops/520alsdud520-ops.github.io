@@ -374,6 +374,11 @@ Games
 - The Games Start and Restart controls now force a fresh game start and are handled through overlay delegation, so regenerated buttons remain active.
 - Verified in the script smoke test that the game transitions to `running` after invoking the start flow.
 
+### Deployment Cache-Bust Follow-up
+
+- Added versioned asset URLs in `index.html` so the deployed site fetches fresh CSS, JavaScript, and SVGs instead of stale cached copies.
+- Added explicit chapter icon dimensions to keep the live GitHub Pages rendering compact even if CSS arrives slightly late.
+
 ### Files Updated In This Pass
 
 - `index.html`

@@ -262,3 +262,30 @@ This file tracks the current state and guardrails for the professional portfolio
   - If future visual or gameplay checks reveal any regression in the snake game controls
 - Human-check items:
   - Real browser confirmation of the Start/Restart behavior
+
+## Deployment Cache-Bust Log
+
+- Loop ID: `loop-006`
+- Goal: refresh the deployed GitHub Pages asset set so the updated section icons render at the intended size
+- Hypothesis: GitHub Pages or the browser is serving cached assets, so versioned asset URLs will force the redeploy to fetch the latest CSS and icons
+- Act:
+  - Added cache-busting query strings to `styles.css`, `game.js`, `script.js`, and section/project SVG assets
+  - Added explicit width/height attributes to the chapter icons so the deployed rendering stays compact even if CSS loads late
+- Changed files:
+  - `index.html`
+  - `MEMORY.md`
+  - `CHANGE_REQUEST.md`
+- Verifier:
+  - `node --check script.js`
+  - HTML grep / reference check for versioned asset URLs
+- Test result:
+  - Script syntax passed
+  - Versioned asset references are present in `index.html`
+- Exit code: `0`
+- Error fingerprint: `DEPLOYMENT:Cached or stale asset references on GitHub Pages`
+- Retry count: `0`
+- Current normal commit candidate: `a300a37` before this cache-bust follow-up commit
+- Rollback criteria:
+  - If the deployment still shows oversized icons after the new versioned assets are published
+- Human-check items:
+  - Confirm the live GitHub Pages site after the redeploy finishes
