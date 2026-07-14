@@ -3,24 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A static professional portfolio for GitHub Pages">
+    <meta
+      name="description"
+      content="A OneUI-inspired professional portfolio with a built-in snake game."
+    >
     <title>520alsdud520-ops | Professional Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="game.js"></script>
     <script defer src="script.js"></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <div class="orb orb-a" aria-hidden="true"></div>
-    <div class="orb orb-b" aria-hidden="true"></div>
+    <a class="skip-link" href="#home">Skip to content</a>
 
     <header class="site-header">
       <div class="container header-row">
         <a class="brand" href="#home" aria-label="Go to top">
-          <span class="brand-mark">520</span>
+          <span class="brand-mark">MX</span>
           <span class="brand-text">
-            <strong>alsdud520-ops</strong>
+            <strong>520alsdud520-ops</strong>
             <span>Professional Portfolio</span>
           </span>
         </a>
@@ -30,7 +30,7 @@
           <span aria-hidden="true">☰</span>
         </button>
 
-        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation" data-open="false">
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
@@ -41,132 +41,154 @@
       </div>
     </header>
 
-    <main id="main">
-      <section id="home" class="section hero">
-        <div class="container hero-grid">
+    <main id="main" class="page-shell">
+      <section id="home" class="panel hero section-panel is-active">
+        <div class="container panel-inner hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Static. Responsive. Playable.</p>
-            <h1>A polished personal website with a built-in snake game.</h1>
-            <p class="lead">
-              This first release establishes the safe foundation: a professional portfolio,
-              mobile-friendly navigation, and a fully playable games area on GitHub Pages.
-            </p>
+            <h1>Welcome to the personal website</h1>
+            <p class="lead">This webpage is a personal website with a built-in snake game.</p>
 
             <div class="cta-row">
-              <a class="button button-primary" href="#projects">View projects</a>
+              <a class="button button-primary" href="#projects">View Projects</a>
               <a class="button button-secondary" href="#games">Open games</a>
             </div>
 
             <ul class="hero-badges" aria-label="Project highlights">
               <li>GitHub Pages ready</li>
-              <li>Mobile-first navigation</li>
+              <li>Mobile-friendly navigation</li>
               <li>Keyboard and touch game controls</li>
             </ul>
           </div>
 
-          <aside class="profile-panel" aria-label="Profile summary">
+          <aside class="profile-panel" aria-labelledby="profile-title">
             <p class="panel-label">Profile</p>
-            <h2>[사람 확인 필요]</h2>
+            <div class="chapter-title chapter-title--stacked">
+              <img src="assets/icon-profile.svg" alt="" aria-hidden="true" class="chapter-icon">
+              <h2 id="profile-title">Profile</h2>
+            </div>
+            <p class="section-copy">
+              앱 개발과 프롬프팅 엔지니어링을 함께 다루며, 모바일 제품과 사용자 경험을 연결하는 일을 좋아합니다.
+            </p>
             <dl class="fact-grid">
               <div>
                 <dt>Name</dt>
-                <dd>[사람 확인 필요]</dd>
+                <dd>이민영</dd>
               </div>
               <div>
                 <dt>Role</dt>
-                <dd>[사람 확인 필요]</dd>
+                <dd>앱 개발자 / 프롬프팅 엔지니어</dd>
               </div>
               <div>
                 <dt>Location</dt>
-                <dd>[사람 확인 필요]</dd>
+                <dd>삼성전자 모바일 연구소</dd>
               </div>
               <div>
                 <dt>Focus</dt>
-                <dd>Frontend engineering, UX, and static deployment</dd>
+                <dd>AI video processing, app development, and product thinking</dd>
               </div>
             </dl>
-            <p class="panel-note">
-              Personal details are intentionally left as placeholders until you confirm them.
-            </p>
           </aside>
         </div>
       </section>
 
-      <section id="about" class="section section-alt">
-        <div class="container split-grid">
+      <section id="about" class="panel section-panel section-alt">
+        <div class="container panel-inner split-grid">
           <div>
             <p class="section-kicker">About</p>
-            <h2>A calm professional introduction area.</h2>
+            <div class="chapter-title">
+              <img src="assets/icon-about.svg" alt="" aria-hidden="true" class="chapter-icon">
+              <h2>About</h2>
+            </div>
           </div>
           <p class="section-copy">
-            This section is ready for a concise bio, a short professional summary, and a
-            trustworthy introduction. Replace the placeholders with verified content only.
+            AI 영상처리에 관심이 있는 앱 개발자이며, Creative Studio 앱 개발에 참여하고 있습니다.
+            실험적인 아이디어를 빠르게 제품 경험으로 연결하는 흐름을 선호합니다.
           </p>
         </div>
       </section>
 
-      <section id="projects" class="section">
-        <div class="container">
+      <section id="projects" class="panel section-panel">
+        <div class="container panel-inner">
           <p class="section-kicker">Projects</p>
           <div class="split-grid">
             <div>
-              <h2>Selected work</h2>
+              <div class="chapter-title">
+                <img src="assets/icon-projects.svg" alt="" aria-hidden="true" class="chapter-icon">
+                <h2>Projects</h2>
+              </div>
               <p class="section-copy">
-                The layout is prepared for real project cards, descriptions, and links.
-                Project names and outcomes should be confirmed before publishing.
+                석사 과정에서 참여했던 두 프로젝트를 중심으로, 문제 정의와 결과가 명확한 작업만 선별해 정리했습니다.
               </p>
             </div>
+
             <div class="card-grid">
-              <article class="info-card">
-                <h3>Project one</h3>
-                <p>[사람 확인 필요]</p>
+              <article class="info-card project-card">
+                <img src="assets/project-cancer.svg" alt="Stylized illustration of cancer diagnosis network project" class="project-visual">
+                <div>
+                  <h3>Cancer diagnosis network</h3>
+                  <p>
+                    암조직 이미지를 보고 암영역이 어디인지 검출하는 프로젝트입니다.
+                    병변 후보를 빠르게 찾는 진단 보조 흐름을 상상할 수 있도록 구성했습니다.
+                  </p>
+                </div>
               </article>
-              <article class="info-card">
-                <h3>Project two</h3>
-                <p>[사람 확인 필요]</p>
+
+              <article class="info-card project-card">
+                <img src="assets/project-artifact.svg" alt="Stylized illustration of microscopy artifact removal project" class="project-visual">
+                <div>
+                  <h3>Microscopy artifact removal</h3>
+                  <p>
+                    현미경 이미지의 줄무늬 왜곡과 artifact를 줄여 영상 품질을 개선하는 프로젝트입니다.
+                    연구 이미지의 가독성과 후속 분석 품질을 높이는 방향으로 표현했습니다.
+                  </p>
+                </div>
               </article>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="experience" class="section section-alt">
-        <div class="container">
+      <section id="experience" class="panel section-panel section-alt">
+        <div class="container panel-inner">
           <p class="section-kicker">Experience</p>
           <div class="split-grid">
             <div>
-              <h2>Experience or research, depending on your confirmed background.</h2>
+              <div class="chapter-title">
+                <img src="assets/icon-experience.svg" alt="" aria-hidden="true" class="chapter-icon">
+                <h2>Experience</h2>
+              </div>
+              <p class="section-copy">
+                석사과정을 졸업했고, 현재 삼성전자 MX 사업부에서 주니어 개발자로 일하고 있습니다.
+              </p>
             </div>
             <div class="timeline">
               <article class="timeline-item">
-                <h3>[사람 확인 필요]</h3>
-                <p>Use this block for verified experience, research, or achievements.</p>
+                <h3>Graduate study</h3>
+                <p>석사 과정에서 의료 영상과 이미지 품질 개선 문제를 다루며 연구 경험을 쌓았습니다.</p>
               </article>
               <article class="timeline-item">
-                <h3>[사람 확인 필요]</h3>
-                <p>Keep only content that you can confirm and are comfortable publishing.</p>
+                <h3>Samsung MX</h3>
+                <p>삼성전자 MX 사업부에서 주니어 개발자로 일하며 제품 경험과 구현 품질을 함께 다룹니다.</p>
               </article>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="games" class="section">
-        <div class="container">
+      <section id="games" class="panel section-panel">
+        <div class="container panel-inner">
           <p class="section-kicker">Games</p>
           <div class="games-layout">
             <div class="games-intro">
-              <h2>Snake game</h2>
-              <p class="section-copy">
-                Play with the keyboard, touch buttons, or swipe gestures. The game uses a
-                single animation loop and stores best score locally in your browser.
-              </p>
-
-              <div class="game-actions" aria-label="Game actions">
-                <button class="button button-primary" type="button" data-action="start">Start</button>
-                <button class="button button-secondary" type="button" data-action="pause">Pause</button>
-                <button class="button button-secondary" type="button" data-action="restart">Restart</button>
+              <div class="chapter-title">
+                <img src="assets/icon-games.svg" alt="" aria-hidden="true" class="chapter-icon">
+                <h2>Games</h2>
               </div>
+              <p class="section-copy">
+                키보드, 터치 버튼, 스와이프를 지원하는 스네이크 게임입니다.
+                `P` 키로 일시정지하고, 게임 본문 안에서 시작과 재시작을 진행합니다.
+              </p>
 
               <dl class="scoreboard" aria-label="Score board">
                 <div>
@@ -186,31 +208,59 @@
 
             <div class="game-panel info-card">
               <div class="board-shell">
-                <canvas id="snake-board" class="snake-board" width="600" height="600" aria-label="Snake game board" role="img"></canvas>
-                <div class="board-overlay" data-role="overlay">Press Start to play</div>
+                <canvas
+                  id="snake-board"
+                  class="snake-board"
+                  width="600"
+                  height="600"
+                  aria-label="Snake game board"
+                  role="img"
+                ></canvas>
+                <div class="board-overlay" data-role="overlay">
+                  <div class="overlay-copy">
+                    <p data-role="overlay-title">Press Start to play</p>
+                    <p data-role="overlay-text">Use the game buttons inside the board or press P to pause.</p>
+                  </div>
+                  <div class="overlay-actions" data-role="overlay-actions">
+                    <button class="button button-primary" type="button" data-action="start">Start</button>
+                  </div>
+                </div>
               </div>
 
-              <div class="touch-controls" aria-label="Touch controls">
-                <button class="dir dir-up" type="button" data-direction="up" aria-label="Move up">▲</button>
-                <button class="dir dir-left" type="button" data-direction="left" aria-label="Move left">◀</button>
-                <button class="dir dir-right" type="button" data-direction="right" aria-label="Move right">▶</button>
-                <button class="dir dir-down" type="button" data-direction="down" aria-label="Move down">▼</button>
+              <div class="game-footer">
+                <p class="game-hint">Keyboard: arrows or WASD, pause with P. Swipe or tap the buttons on mobile.</p>
+                <div class="touch-controls" aria-label="Touch controls">
+                  <button class="dir dir-up" type="button" data-direction="up" aria-label="Move up">▲</button>
+                  <button class="dir dir-left" type="button" data-direction="left" aria-label="Move left">◀</button>
+                  <button class="dir dir-right" type="button" data-direction="right" aria-label="Move right">▶</button>
+                  <button class="dir dir-down" type="button" data-direction="down" aria-label="Move down">▼</button>
+                </div>
+
+                <div class="leaderboard-card">
+                  <div class="leaderboard-head">
+                    <p class="panel-label">Leader board</p>
+                    <span>Top local scores</span>
+                  </div>
+                  <ol class="leaderboard" data-role="leaderboard"></ol>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="section section-alt">
-        <div class="container split-grid">
+      <section id="contact" class="panel section-panel section-alt">
+        <div class="container panel-inner split-grid">
           <div>
             <p class="section-kicker">Contact</p>
-            <h2>Confirmed contact details go here.</h2>
+            <div class="chapter-title">
+              <img src="assets/icon-contact.svg" alt="" aria-hidden="true" class="chapter-icon">
+              <h2>Contact</h2>
+            </div>
           </div>
           <div class="contact-list">
-            <p><strong>Email:</strong> [사람 확인 필요]</p>
+            <p><strong>Email:</strong> <a href="mailto:520alsdud520@gmail.com">520alsdud520@gmail.com</a></p>
             <p><strong>GitHub:</strong> 520alsdud520-ops</p>
-            <p><strong>LinkedIn:</strong> [사람 확인 필요]</p>
           </div>
         </div>
       </section>

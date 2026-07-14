@@ -154,3 +154,111 @@ This file tracks the current state and guardrails for the professional portfolio
 - End state: `DEPLOYED`
 - Next action: post-deploy browser check or polish if needed
 - Human-check items: direct browser HTTP check from this shell returned unavailable, final visual confirmation `[사람 확인 필요]`
+
+## Change Request Intake
+
+- New Change Request ID: `CR-20260714-01`
+- Last normal site-content commit: `082ca57`
+- Last recorded repository commit: `838cf78`
+- Last known deployment URL: <https://520alsdud520-ops.github.io/>
+- Current status: `HITL_REQUIRED`
+- Current blocker: live browser visibility from this shell is not fully confirmed; the user reported the deployed page was not visible
+- Next Step 9 loop ID: `L-001`
+- Loop order:
+  - `L-001` baseline capture and deployment visibility confirmation
+  - `L-002` OneUI-inspired visual redesign and header/icon refresh
+  - `L-003` hero, profile, about, experience, and contact content fill
+  - `L-004` projects content and imagery
+  - `L-005` games UX, pause shortcut, leaderboard, and board clipping fix
+  - `L-006` final regression and deployment readiness
+- Rollback criteria:
+  - Any new broken anchor or console error
+  - Any requirement for unapproved external services or assets
+  - Any repeated deployment visibility mismatch
+- Human-check items:
+  - Exact OneUI asset/source choice
+  - Whether the user wants literal Samsung-branded icons or OneUI-inspired equivalents
+  - Final approval of project imagery style
+
+## Change Execution Log
+
+- Loop ID: `loop-004`
+- Change Request ID: `CR-20260714-01`
+- Change Item IDs: `CR-001` through `CR-010`
+- Start state: `CHANGE_PLANNED`
+- End state: `HITL_REQUIRED`
+- Goal: implement the requested redesign, content fill, and Games improvements
+- Hypothesis: the current codebase can absorb the requested changes without changing framework or backend shape
+- Act:
+  - Rebuilt the landing page to a OneUI-inspired, sectioned layout
+  - Updated the header brand to `MX` + `520alsdud520-ops`
+  - Filled the requested profile, About, Projects, Experience, and Contact content
+  - Added local SVG icons and project illustrations
+  - Reworked the Games section to use in-board Start/Restart controls, `P` pause, and a local leaderboard
+  - Refined the snake game bootstrap and rendering path
+- Changed files:
+  - `index.html`
+  - `styles.css`
+  - `script.js`
+  - `assets/icon-profile.svg`
+  - `assets/icon-about.svg`
+  - `assets/icon-projects.svg`
+  - `assets/icon-experience.svg`
+  - `assets/icon-games.svg`
+  - `assets/icon-contact.svg`
+  - `assets/project-cancer.svg`
+  - `assets/project-artifact.svg`
+  - `CHANGE_REQUEST.md`
+  - `AORR.md`
+  - `MEMORY.md`
+- Verifier:
+  - `node --check script.js`
+  - `node --check game.js`
+  - Node-based local HTTP self-fetch checks
+  - Node-based game engine smoke test
+  - Node-based script bootstrap smoke test with a stub DOM
+- Test result:
+  - Static assets returned HTTP 200 in the local self-fetch test
+  - Snake engine smoke test passed
+  - Script bootstrap smoke test passed after fixing a real `loopState` reference bug
+  - Browser-based local visual checks were blocked by the browser URL policy in this environment
+- Exit code: `0` for all successful verifier commands; one smoke-test retry was required to fix the `loopState` bug
+- Error fingerprint: `JAVASCRIPT:ReferenceError: loopState is not defined`
+- Retry count: `1`
+- Current normal commit candidate: `838cf78` until a new commit is made
+- Rollback criteria:
+  - Any regression in navigation, section anchors, or game controls
+  - Any broken static asset or missing file
+  - Any repeated browser-visibility mismatch
+  - Any new dependency or framework requirement
+- Human-check items:
+  - Real browser viewport verification
+  - Final visual approval of the redesign
+  - Final approval of project imagery style
+
+- Loop ID: `loop-005`
+- Change Request ID: `CR-20260714-01`
+- Change Item IDs: `CR-009`
+- Start state: `HITL_REQUIRED`
+- End state: `PASSED` for the start/restart hotfix portion of `CR-009`
+- Goal: make the Games Start and Restart buttons reliably begin a new game
+- Hypothesis: using a single delegated handler and forcing a fresh game start will eliminate the non-starting button behavior
+- Act:
+  - Changed `startGame()` to always restart the snake game cleanly
+  - Added delegated overlay button handling so regenerated buttons continue to work
+- Changed files:
+  - `script.js`
+- Verifier:
+  - `node --check script.js`
+  - Node-based bootstrap and start-flow smoke test
+- Test result:
+  - Script syntax passed
+  - Button-driven start flow now transitions to running state in the smoke test
+- Exit code: `0`
+- Error fingerprint: `JAVASCRIPT:Start button did not reliably transition the game to running`
+- Retry count: `1`
+- Current normal commit candidate: `838cf78` until a new commit is made
+- Rollback criteria:
+  - If future visual or gameplay checks reveal any regression in the snake game controls
+- Human-check items:
+  - Real browser confirmation of the Start/Restart behavior

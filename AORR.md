@@ -832,3 +832,50 @@ Escalate to a person when:
 - Do not assume a model name that was not verified in the CLI
 - If authentication remains unavailable, mark the Claude verifier path as `BLOCKED`
 - If `claude --print` continues to time out in this environment, mark the model probe path as `BLOCKED` and fall back to local verifiers
+
+---
+
+## Change Request Loop Plan
+
+- Change Request ID: `CR-20260714-01`
+- Target repository: `520alsdud520-ops/520alsdud520-ops.github.io`
+- Goal: safely plan the requested OneUI-style redesign, content fill, Games improvements, and deployment-ready regression work without changing code in this intake step.
+
+| Loop ID | Connected Change Items | Target | Act | Observe | Reason | Verifier | Completion Criteria | Retry Policy | Stop Conditions | HITL Conditions | State Transitions |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `L-001` | `CR-001` | Reconfirm baseline, deployment visibility, and the scope of the visual redesign | Inspect repo state, live URL visibility, and current section structure before touching code | Compare current files, Git status, and user-side live visibility | `TEST`, `DEPLOYMENT`, `UNKNOWN` | Local file inspection, Git history, and live-URL check | Baseline recorded and any visibility gaps marked `[사람 확인 필요]` | 3 retries max, stop on repeated fingerprint | Missing baseline, ambiguous deployment visibility, or env issues | Live page not visible from the user side | `CHANGE_INTAKE -> READY -> VERIFYING -> PASSED` |
+| `L-002` | `CR-002`, `CR-003` | Refresh the header and OneUI-inspired visual language | Update brand badge, chapter icon treatment, and section framing | Check top bar, chapter headings, and responsive presentation | `UI_UX`, `CONTENT`, `RESPONSIVE` | HTML/CSS inspection plus viewport review | Header text matches request and section visuals feel like distinct panels | Fix one visual cause at a time | Horizontal overflow, broken nav, or unreadable typography | Exact icon source or visual direction is unclear | `READY -> ACTING -> VERIFYING -> RETRYING/PASSED` |
+| `L-003` | `CR-004`, `CR-005`, `CR-006`, `CR-008`, `CR-010` | Fill the professional profile and contact copy with verified content | Replace placeholders with user-provided name, role, location, About, Experience, and Contact text | Check for placeholder removal and verify text accuracy | `CONTENT`, `DOCUMENT_BASED_CONTENT` | DOM text review and visual review | All confirmed fields are filled and placeholders removed where requested | One content family per retry | Unverified or conflicting personal facts | `READY -> ACTING -> VERIFYING -> PASSED` |
+| `L-004` | `CR-007` | Build the Projects section with descriptions and images | Add the two projects and create suitable static visuals | Inspect project cards, image rendering, and responsive layout | `CONTENT`, `UI_UX` | Visual inspection and broken-image check | Two project cards exist with text and an appropriate visual | One project card or asset issue per retry | Missing or broken project media | If image sourcing or style choice needs confirmation | `READY -> ACTING -> VERIFYING -> PASSED` |
+| `L-005` | `CR-009` | Improve the Games section and snake game ergonomics | Move the start/restart experience into the game body, bind pause to `P`, add leaderboard support, and keep the board visible | Check state transitions, keyboard control, mobile control, score storage, and viewport fit | `GAME_CONTROL`, `GAME_STATE`, `RESPONSIVE`, `NEW_FEATURE` | Keyboard, touch, and viewport verifier | Game starts, pauses, restarts, records leaderboard entries, and avoids clipping | One game-state root cause per retry | Repeated same fingerprint, broken control mapping, or timer duplication | Conflicting leaderboard rules or inaccessible assets | `READY -> ACTING -> VERIFYING -> RETRYING/PASSED` |
+| `L-006` | `CR-001` through `CR-010` | Final regression and deployment readiness check | Re-run the same verifier set across desktop/mobile and confirm GitHub Pages compatibility | Check for console errors, anchor integrity, responsiveness, and deployment viability | `TEST`, `DEPLOYMENT`, `CSS_RESPONSIVE`, `JAVASCRIPT` | Local server and browser-based verification | All targeted behaviors pass or remaining issues are explicitly marked `[사람 확인 필요]` | Stop after 3 retries or duplicate fingerprint | Any deployment issue, repeated identical failure, or unresolved HITL item | `VERIFYING -> DEPLOY_READY -> DEPLOYING -> DEPLOYED` |
+
+### State Guidance
+
+- `CHANGE_INTAKE`: Gather the baseline, user request, and repository facts.
+- `CHANGE_PLANNED`: All requested work has been decomposed into actionable items.
+- `READY`: A loop can start without further clarification.
+- `ACTING`: Make only the minimal allowed file changes for that loop.
+- `VERIFYING`: Run the same verifier set used before the change.
+- `RETRYING`: Fix one root cause only, then rerun the verifier.
+- `PASSED`: The loop’s completion criteria are satisfied.
+- `BLOCKED`: Environment, permission, or deployment constraints prevent safe progress.
+- `HITL_REQUIRED`: The loop needs human confirmation before continuing.
+- `DEPLOY_APPROVAL_REQUIRED`: All local changes are ready, but deployment still needs approval.
+- `DEPLOYED`: The requested site has been published and verified.
+
+### Current Change Execution Notes
+
+- Executed Change Request: `CR-20260714-01`
+- Implemented items:
+  - `CR-002` through `CR-008`, `CR-010` implemented and verified with shell-based checks
+  - `CR-001` and `CR-009` implemented, but real browser viewport validation is still `[사람 확인 필요]`
+- Retry observed:
+  - One real code bug appeared during smoke testing: `JAVASCRIPT` / `ReferenceError: loopState is not defined`
+  - Fixed by replacing the stale identifier with `stateMemory`
+- Browser status:
+  - In-app browser navigation to local URLs is blocked by policy in this environment
+  - Local HTTP and DOM smoke tests were used as the fallback verifier
+- Current execution state: `HITL_REQUIRED`
+- Next safe action:
+  - Have a person confirm the design visually in a real browser, then continue with any final polish or approval step
